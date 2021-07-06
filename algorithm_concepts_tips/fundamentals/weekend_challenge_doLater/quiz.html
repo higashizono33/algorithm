@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <span>Name here =></span>
+    <input type="text">
+    <p id="quiz"></p>
+    <form id="selection">
+        <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> I have a bike</label><br> -->
+        <!-- <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label><br><br>
+        <input type="submit" value="Submit"> -->
+    </form>
+    <div>
+        <button>Cancel</button>
+    </div>
+    <script type="text/javascript">
+        var quizzes = [
+            ['What is can be Sushi ingredient?', 'Tuna'],
+            ['What is can be Taco ingredient?', 'Nacho'],
+            ['What is can be Crape ingredient?', 'Banana'],
+            ['What is can be BBQ ingredient?', 'Burger'],
+            ['What is can be Ramen ingredient?', 'Noodle'],
+        ] 
+        
+        var quiz = document.getElementById('quiz')
+        
+        function setQuiz(){
+            var rand = Math.floor(Math.random()*quizzes.length)
+            quiz.setAttribute('quizNumber', rand)
+            quiz.innerHTML = quizzes[rand][0]
+        }
+        // var quiz = document.getElementById('quiz')
+        // var content = setQuiz()
+        // quiz.innerHTML = content
+        setQuiz()
+        var current = Number(quiz.getAttribute('quizNumber'))
+
+        function makeRandomArr(){
+            var arr = []
+            var temp = 0
+            while(arr.length<2){
+                var rand = Math.floor(Math.random()*quizzes.length)
+                if(rand!=temp&&rand!=current){
+                    arr.push(rand)
+                }
+                temp = rand
+            }
+            var index = Math.floor(Math.random()*arr.length)
+            arr.splice(index, 0, current)
+            return arr
+        }
+
+        var arr = makeRandomArr()
+        var selection = document.getElementById('selection')
+        function setOption(){
+            var options = ''
+            for(var i=0; i<arr.length; i++){
+                // var x = arr[i]
+                // console.log(x)
+                var option = ''
+                options += 
+                `<input type="checkbox" class="option" name="settings" value="${quizzes[arr[i]][1]}"><label for="${quizzes[arr[i]][1]}">${quizzes[arr[i]][1]}</label><br>`
+            }
+            selection.innerHTML = options
+        }
+        setOption()
+
+        var correct = 0
+        function checkAnswer(){
+            var answer = document.querySelector('.option:checked').value;
+            console.log(answer)
+            if(answer==quizzes[current][1]){
+                correct++
+                console.log('hi')
+            }else{
+                console.log('wrong')
+            }
+        }
+        var checkboxes = document.querySelectorAll("input[type=checkbox][name=settings]");
+        let enabledSettings = []
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                enabledSettings = 
+                Array.from(checkboxes) // Convert checkboxes to an array to use filter and map.
+                .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
+                .map(i => i.value) // Use Array.map to extract only the checkbox values from the array of objects.
+                checkAnswer()
+            })
+        });
+        // checkbox.addEventListener('change', function() {
+        //     if (this.checked) {
+        //         checkAnswer();
+        //     } else {
+        //         console.log("Checkbox is not checked..");
+        //     }
+        // });
+
+    </script>
+</body>
+</html>

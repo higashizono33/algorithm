@@ -1,0 +1,53 @@
+What is source code?
+Computer readable instruction. To manipulate a computer with the code.
+
+What makes computers so “smart”, anyway?
+Advanced programming in order to make computers process vast amounts of data quickly.
+
+What is the purpose of a programming language?
+What are 3 examples of programming languages? Why are there so many of these?
+Rudy, Python, Java. Because each language has some strengths such as Python is good at machine learning.
+
+What is a variable? Why are variables useful?
+You don't have to write values each time if you stored in variable.
+Also, others can understand what is this value for with seeing variable's name.
+
+What is the difference between a single-equals (=) and a double-equals (==)?
+Single-equals is A = B, A and B is same value. double-equals is used in conditional such if A==B equaled.
+
+What is the difference between a double-equals (==) and a triple-equals (===)?
+Triple-equals is more strict equality check than double.
+
+Why does the developer console exist?
+Console is helpful to confirm what a function returns in the middle of coding.
+
+When we talk about “conditional” statements, what does that mean? What is an example?
+A order will implement if conditional is true.
+If A equaled B, print ('hi'). 
+If(A==B){
+    console.log('hi')
+}
+
+Why would we want FOR or WHILE loops in our source code?
+Loops can be useful when to do some repeat works. You can easy to write code 2 or 3 times, but not 100.
+
+When would you use a WHILE loop, instead of a FOR loop?
+If you knew end-condition for the loop, WHILE loop is easier to do so.
+
+What is a function? Why would we use functions?
+Once you set a function, you don't have to write same thing again. Just run the function when you need.
+
+How many values can you receive back from a function? How many values can you send in?
+Any values you can receive from a function as "RETURN", and any value can send in as arguments.
+
+What is an array? How many values does it hold?
+Can hold any values. An array can hold values in elements.
+arr = [1,'hi',3,4,'hi']
+arr[0] has number 1
+arr[1] has string 'hi'
+
+What is a T-diagram and why should I know how to use one?
+T-diagram is to break-down what a computer has now in the function-flow.
+
+What are the two ways to comment JS code? When would you use one versus the other?
+Using '//' is one line or '/*' and '*/' for multi lines
