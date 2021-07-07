@@ -26,9 +26,7 @@ class SLL {
         if(this.head=null){
             return null
         }else{
-            while(this.next == null){
-                this = this.next
-            }
+            this.head = this.head.next
         }
         this.length--
         return this.head
