@@ -20,7 +20,8 @@ class SLL {
         var myList = ''
         
         while(node.next){
-            node.value += allValues
+            console.log(node.value)
+            myList += node.value + ' '
             node = node.next
         }
 
